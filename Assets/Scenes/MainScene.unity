@@ -1850,7 +1850,8 @@ MonoBehaviour:
   - {fileID: 1698251352}
   - {fileID: 1639140852}
   dialogues:
-  - {fileID: 0}
+  - {fileID: 4900000, guid: bc1f4a2f89d950143aca362b6b0f14da, type: 3}
+  - {fileID: 4900000, guid: b563e61c7f63cca45b4f640483123904, type: 3}
 --- !u!1 &1846655256
 GameObject:
   m_ObjectHideFlags: 0
