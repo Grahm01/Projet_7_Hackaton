@@ -45,7 +45,7 @@ public class DialogueManager : MonoBehaviour
     private void Start() 
     {
         dialogueIsPlaying = true;
-        dialoguePanel.SetActive(true);
+        dialoguePanel.SetActive(false);
 
     //     // get the layout animator
     //     layoutAnimator = dialoguePanel.GetComponent<Animator>();
