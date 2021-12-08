@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
     // private const string PORTRAIT_TAG = "portrait";
     // private const string LAYOUT_TAG = "layout";
 
-    private void Awake() 
+    private void Awake()
     {
         if (instance != null)
         {
@@ -38,33 +38,33 @@ public class DialogueManager : MonoBehaviour
         instance = this;
     }
 
-    public static DialogueManager GetInstance() 
+    public static DialogueManager GetInstance()
     {
         return instance;
     }
 
-    private void Start() 
+    private void Start()
     {
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(false);
 
-    //     // get the layout animator
-    //     layoutAnimator = dialoguePanel.GetComponent<Animator>();
+        //     // get the layout animator
+        //     layoutAnimator = dialoguePanel.GetComponent<Animator>();
 
-    //     // get all of the choices text 
+        //     // get all of the choices text 
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
-        foreach (GameObject choice in choices) 
+        foreach (GameObject choice in choices)
         {
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
     }
 
-    private void Update() 
+    private void Update()
     {
         // return right away if dialogue isn't playing
-        if (!dialogueIsPlaying) 
+        if (!dialogueIsPlaying)
         {
             return;
         }
@@ -77,21 +77,27 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON) 
+    public void EnterRandomDialogueMode()
+    {
+        int index = Random.Range(0, dialogues.Count);
+        EnterDialogueMode(dialogues[index]);
+    }
+
+    public void EnterDialogueMode(TextAsset inkJSON)
     {
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
-    //     // reset portrait, layout, and speaker
-    //     displayNameText.text = "???";
-    //     portraitAnimator.Play("default");
-    //     layoutAnimator.Play("right");
+        //     // reset portrait, layout, and speaker
+        //     displayNameText.text = "???";
+        //     portraitAnimator.Play("default");
+        //     layoutAnimator.Play("right");
 
         ContinueStory();
     }
 
-    private IEnumerator ExitDialogueMode() 
+    private IEnumerator ExitDialogueMode()
     {
         yield return new WaitForSeconds(0.2f);
 
@@ -100,9 +106,9 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
     }
 
-    private void ContinueStory() 
+    private void ContinueStory()
     {
-        if (currentStory.canContinue) 
+        if (currentStory.canContinue)
         {
             // set text for the current dialogue line
             dialogueText.text = currentStory.Continue();
@@ -111,7 +117,7 @@ public class DialogueManager : MonoBehaviour
             // handle tags
             // HandleTags(currentStory.currentTags);
         }
-        else 
+        else
         {
             StartCoroutine(ExitDialogueMode());
         }
@@ -130,7 +136,7 @@ public class DialogueManager : MonoBehaviour
     //         }
     //         string tagKey = splitTag[0].Trim();
     //         string tagValue = splitTag[1].Trim();
-            
+
     //         // handle the tag
     //         switch (tagKey) 
     //         {
@@ -150,27 +156,27 @@ public class DialogueManager : MonoBehaviour
     //     }
     // }
 
-    private void DisplayChoices() 
+    private void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
 
         // defensive check to make sure our UI can support the number of choices coming in
         if (currentChoices.Count > choices.Length)
         {
-            Debug.LogError("More choices were given than the UI can support. Number of choices given: " 
+            Debug.LogError("More choices were given than the UI can support. Number of choices given: "
                 + currentChoices.Count);
         }
 
         int index = 0;
         // enable and initialize the choices up to the amount of choices for this line of dialogue
-        foreach(Choice choice in currentChoices) 
+        foreach (Choice choice in currentChoices)
         {
             choices[index].gameObject.SetActive(true);
             choicesText[index].text = choice.text;
             index++;
         }
         // go through the remaining choices the UI supports and make sure they're hidden
-        for (int i = index; i < choices.Length; i++) 
+        for (int i = index; i < choices.Length; i++)
         {
             choices[i].gameObject.SetActive(false);
         }
@@ -178,10 +184,10 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(SelectFirstChoice());
     }
 
-    private IEnumerator SelectFirstChoice() 
+    private IEnumerator SelectFirstChoice()
     {
-       // Event System requires we clear it first, then wait
-       // for at least one frame before we set the current selected object.
+        // Event System requires we clear it first, then wait
+        // for at least one frame before we set the current selected object.
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);

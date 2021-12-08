@@ -12,23 +12,23 @@ public class DialogueTrigger : MonoBehaviour
 
     // private bool playerInRange;
 
-    private void Awake() 
+    private void Awake()
     {
         // playerInRange = false;
         // visualCue.SetActive(false);
     }
 
-    private void Update() 
+    private void Update()
     {
         if (DialogueManager.GetInstance().dialogueIsPlaying) // makes it impossible to trigger the dialogue again = not reset the dialogue by pressing "i" until dialogue is finished
         {
             visualCue.SetActive(true);
-            if (InputManager.GetInstance().GetInteractPressed()) 
+            if (InputManager.GetInstance().GetInteractPressed())
             {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                DialogueManager.GetInstance().EnterRandomDialogueMode();
             }
         }
-        else 
+        else
         {
             visualCue.SetActive(false);
         }
