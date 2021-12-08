@@ -578,7 +578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -126.31001, y: 6.3200073}
+  m_AnchoredPosition: {x: -126.31, y: 6.3200073}
   m_SizeDelta: {x: -303.15, y: -56.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348162295
@@ -1849,6 +1849,8 @@ MonoBehaviour:
   choices:
   - {fileID: 1698251352}
   - {fileID: 1639140852}
+  dialogues:
+  - {fileID: 0}
 --- !u!1 &1846655256
 GameObject:
   m_ObjectHideFlags: 0

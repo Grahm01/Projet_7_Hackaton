@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
 
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
+    public List<TextAsset> dialogues;
 
     private static DialogueManager instance;
 
