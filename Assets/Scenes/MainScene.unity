@@ -1326,10 +1326,6 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4e03753a-0619-4fa4-8cd5-0f8f5b638b94
-    m_ActionName: game/move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/z,/Keyboard/s,/Keyboard/q,/Keyboard/d]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1517586087}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
@@ -1361,18 +1357,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 15170e93-04a5-4360-ab3b-2c3ace7a8215
     m_ActionName: game/submit[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 85a080e9-ad4f-442e-b8cd-efe5c0f1a4c2
-    m_ActionName: game/pickup[/Keyboard/i]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 767416a4-8f02-4b03-abb8-a4dc85161acd
-    m_ActionName: game/crouch[/Keyboard/c]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bf6bf548-dc4c-4430-b606-93e160828fca
-    m_ActionName: game/combine[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: game
@@ -1849,9 +1833,12 @@ MonoBehaviour:
   choices:
   - {fileID: 1698251352}
   - {fileID: 1639140852}
+  dialogueIsPlaying: 0
   dialogues:
-  - {fileID: 4900000, guid: bc1f4a2f89d950143aca362b6b0f14da, type: 3}
-  - {fileID: 4900000, guid: b563e61c7f63cca45b4f640483123904, type: 3}
+  - {fileID: 4900000, guid: 98ad6bd7f960d3e4d99d0f302a351cef, type: 3}
+  - {fileID: 4900000, guid: eee830f670bd6e64091ef7e279471ab0, type: 3}
+  - {fileID: 4900000, guid: 07a5ec3746b7fb244bb639e69dca3412, type: 3}
+  - {fileID: 4900000, guid: e526da439d628854d80a75fa166d09b8, type: 3}
 --- !u!1 &1846655256
 GameObject:
   m_ObjectHideFlags: 0
