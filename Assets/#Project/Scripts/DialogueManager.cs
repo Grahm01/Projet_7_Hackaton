@@ -20,7 +20,8 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
 
     private Story currentStory;
-    public bool dialogueIsPlaying { get; private set; }
+    [HideInInspector]
+    public bool dialogueIsPlaying = false;
     public List<TextAsset> dialogues;
 
     private static DialogueManager instance;
@@ -45,7 +46,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        dialogueIsPlaying = true;
+        dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
         //     // get the layout animator
@@ -85,6 +86,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        Debug.Log($"dialogue: {dialogueIsPlaying}");
+        if (dialogueIsPlaying) return;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
