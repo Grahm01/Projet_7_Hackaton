@@ -15,7 +15,7 @@ public class SpriteChange : MonoBehaviour
 
     void Start()
     {
-        OnMouseClick();
+        //OnMouseClick();
 }
     void Update()
     {
