@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]
     public bool dialogueIsPlaying = false;
     public List<GameObject> dialogues;
+    
 
     private static DialogueManager instance;
 
@@ -95,13 +96,14 @@ public class DialogueManager : MonoBehaviour
         public void EnterRandomDialogueMode()
     {
         int index = Random.Range(0, dialogues.Count);
+       
         EnterDialogueMode(dialogues[index]);
     }
 
     public void EnterDialogueMode(TextAsset inkJSON)
 
     {
-        inkJSON = this.GetComponent<TextAsset>;
+        inkJSON = this.GetComponent<TextAsset>();
         Debug.Log($"dialogue: {dialogueIsPlaying}");
         if (dialogueIsPlaying) return;
         currentStory = new Story(inkJSON.text);
@@ -142,6 +144,38 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // private void HandleTags(List<string> currentTags)
+    // {
+    //     // loop through each tag and handle it accordingly
+    //     foreach (string tag in currentTags) 
+    //     {
+    //         // parse the tag
+    //         string[] splitTag = tag.Split(':');
+    //         if (splitTag.Length != 2) 
+    //         {
+    //             Debug.LogError("Tag could not be appropriately parsed: " + tag);
+    //         }
+    //         string tagKey = splitTag[0].Trim();
+    //         string tagValue = splitTag[1].Trim();
+
+    //         // handle the tag
+    //         switch (tagKey) 
+    //         {
+    //             case SPEAKER_TAG:
+    //                 displayNameText.text = tagValue;
+    //                 break;
+    //             case PORTRAIT_TAG:
+    //                 portraitAnimator.Play(tagValue);
+    //                 break;
+    //             case LAYOUT_TAG:
+    //                 layoutAnimator.Play(tagValue);
+    //                 break;
+    //             default:
+    //                 Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
+    //                 break;
+    //         }
+    //     }
+    // }
 
     private void DisplayChoices()
     {
