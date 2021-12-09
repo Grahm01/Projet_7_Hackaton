@@ -24,7 +24,8 @@ Souhaites-tu en écouter un peu ?
      -> ending
     
 === encoreplus ===
-Merci d’avoir écouté ! La musique est une des plus grandes nourritures de l’âme. Ne l’oublie pas ! -> ending
+🎵🎸 Pixie joue de la musique 🎵🎸
+Merrci d’avoir écouté ! La musique est une des plus grandes nourritures de l’âme. Ne l’oublie pas ! -> ending
 
 === ending ===
 Parlons encore de musique une autre fois! 

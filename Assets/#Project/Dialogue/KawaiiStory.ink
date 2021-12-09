@@ -1,7 +1,3 @@
-Hey !  Bonjour l’ami !  J’espère que tu vas bien en ce beau jour.
-Je m’appelle Lamé Nestrelle et je suis la barde d’IF3 !  Je suis ici pour te conter des histoires..
-
-
 -> interface3
 
 === interface3 ===
