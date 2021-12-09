@@ -11,7 +11,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Controls))]
 public class InputManager : MonoBehaviour
 {
-    private Vector2 moveDirection = Vector2.zero;
     private bool interactPressed = false;
     private bool submitPressed = false;
 
