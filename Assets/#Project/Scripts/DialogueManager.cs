@@ -111,14 +111,15 @@ public class DialogueManager : MonoBehaviour
         {
             // set text for the current dialogue line
             dialogueText.text = currentStory.Continue();
+
             // display choices, if any, for this dialogue line
             DisplayChoices();
             // handle tags
             // HandleTags(currentStory.currentTags);
         }
-        else
+        else if (currentStory.currentChoices.Count == 0)
         {
-            //StartCoroutine(ExitDialogueMode());
+            StartCoroutine(ExitDialogueMode());
         }
     }
 
