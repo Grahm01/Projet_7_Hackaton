@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     private Story currentStory;
     [HideInInspector]
     public bool dialogueIsPlaying = false;
-    public List<TextAsset> dialogues;
+    public List<GameObject> dialogues;
 
     private static DialogueManager instance;
 
@@ -76,16 +76,32 @@ public class DialogueManager : MonoBehaviour
         {
             ContinueStory();
         }
-    }
 
-    public void EnterRandomDialogueMode()
+        if (DialogueManager.GetInstance().dialogueIsPlaying == false) // makes it impossible to trigger the dialogue again = not reset the dialogue by pressing "i" until dialogue is finished
+        {
+            
+            if (InputManager.GetInstance().GetInteractPressed())
+            {
+                DialogueManager.GetInstance().EnterRandomDialogueMode();
+            }
+        }
+        else
+        {
+
+
+        }
+
+    }
+        public void EnterRandomDialogueMode()
     {
         int index = Random.Range(0, dialogues.Count);
         EnterDialogueMode(dialogues[index]);
     }
 
     public void EnterDialogueMode(TextAsset inkJSON)
+
     {
+        inkJSON = this.GetComponent<TextAsset>;
         Debug.Log($"dialogue: {dialogueIsPlaying}");
         if (dialogueIsPlaying) return;
         currentStory = new Story(inkJSON.text);
@@ -202,5 +218,6 @@ public class DialogueManager : MonoBehaviour
         InputManager.GetInstance().RegisterSubmitPressed(); // this is specific to my InputManager script
         ContinueStory();
     }
+
 
 }
