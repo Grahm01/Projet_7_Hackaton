@@ -23,7 +23,9 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]
     public bool dialogueIsPlaying = false;
     public List<GameObject> dialogues;
-    
+
+    public GameObject selectedDialogue;
+
 
     private static DialogueManager instance;
 
@@ -63,48 +65,24 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void Update()
+
+    public void EnterRandomDialogueMode()
     {
-        // return right away if dialogue isn't playing
-        if (!dialogueIsPlaying)
-        {
-            return;
-        }
-
-        // handle continuing to the next line in the dialogue when submit is pressed
-        // NOTE: The 'currentStory.currentChoiecs.Count == 0' part was to fix a bug after the Youtube video was made
-        if (InputManager.GetInstance().GetSubmitPressed()) //(currentStory.currentChoices.Count == 0 && InputManager.GetInstance().GetSubmitPressed())
-        {
-            ContinueStory();
-        }
-
-        if (DialogueManager.GetInstance().dialogueIsPlaying == false) // makes it impossible to trigger the dialogue again = not reset the dialogue by pressing "i" until dialogue is finished
-        {
-            
-            if (InputManager.GetInstance().GetInteractPressed())
-            {
-                DialogueManager.GetInstance().EnterRandomDialogueMode();
-            }
-        }
-        else
-        {
-
-
-        }
-
-    }
-        public void EnterRandomDialogueMode()
-    {
+        if (dialogueIsPlaying) return;
         int index = Random.Range(0, dialogues.Count);
-       
-        EnterDialogueMode(dialogues[index]);
+
+        selectedDialogue = dialogues[index];
+        DialogueTrigger dialogueTrigger = selectedDialogue.GetComponent<DialogueTrigger>();
+        if (dialogueTrigger == null)
+        {
+            Debug.LogError($"No DialogueTrigger in gameObject \"{selectedDialogue.name}\".", gameObject);
+        }
+        EnterDialogueMode(dialogueTrigger.inkJSON);
     }
 
     public void EnterDialogueMode(TextAsset inkJSON)
 
     {
-        inkJSON = this.GetComponent<TextAsset>();
-        Debug.Log($"dialogue: {dialogueIsPlaying}");
         if (dialogueIsPlaying) return;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
@@ -127,7 +105,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
     }
 
-    private void ContinueStory()
+    public void ContinueStory()
     {
         if (currentStory.canContinue)
         {
@@ -140,7 +118,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(ExitDialogueMode());
+            //StartCoroutine(ExitDialogueMode());
         }
     }
 
