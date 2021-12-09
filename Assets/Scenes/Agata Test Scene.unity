@@ -1454,7 +1454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545553507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.27, y: -0.02, z: 0}
+  m_LocalPosition: {x: 3.07, y: -0.02, z: 0}
   m_LocalScale: {x: -0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1978,4 +1978,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 1757059499}
-  inkJSON: {fileID: 4900000, guid: bc1f4a2f89d950143aca362b6b0f14da, type: 3}
+  inkJSON: {fileID: 0}
