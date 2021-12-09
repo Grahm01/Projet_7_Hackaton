@@ -32,29 +32,6 @@ public class InputManager : MonoBehaviour
         return instance;
     }
 
-    // public void MovePressed(InputAction.CallbackContext context)
-    // {
-    //     if (context.performed)
-    //     {
-    //         moveDirection = context.ReadValue<Vector2>();
-    //     }
-    //     else if (context.canceled)
-    //     {
-    //         moveDirection = context.ReadValue<Vector2>();
-    //     } 
-    // }
-
-    // public void JumpPressed(InputAction.CallbackContext context)
-    // {
-    //     if (context.performed)
-    //     {
-    //         jumpPressed = true;
-    //     }
-    //     else if (context.canceled)
-    //     {
-    //         jumpPressed = false;
-    //     }
-    // }
 
     public void InteractButtonPressed(InputAction.CallbackContext context)
     {
@@ -80,21 +57,6 @@ public class InputManager : MonoBehaviour
         } 
     }
 
-    // public Vector2 GetMoveDirection() 
-    // {
-    //     return moveDirection;
-    // }
-
-    // for any of the below 'Get' methods, if we're getting it then we're also using it,
-    // which means we should set it to false so that it can't be used again until actually
-    // pressed again.
-
-    // public bool GetJumpPressed() 
-    // {
-    //     bool result = jumpPressed;
-    //     jumpPressed = false;
-    //     return result;
-    // }
 
     public bool GetInteractPressed() 
     {
