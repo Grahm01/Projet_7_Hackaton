@@ -8,11 +8,10 @@ using UnityEngine.InputSystem;
 // functions should be mapped to their corresponding controls
 // using a PlayerInput component with Unity Events.
 
-[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(Controls))]
 public class InputManager : MonoBehaviour
 {
     private Vector2 moveDirection = Vector2.zero;
-    //private bool jumpPressed = false;
     private bool interactPressed = false;
     private bool submitPressed = false;
 
