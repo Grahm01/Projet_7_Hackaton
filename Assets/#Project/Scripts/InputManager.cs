@@ -12,7 +12,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     private Vector2 moveDirection = Vector2.zero;
-    private bool jumpPressed = false;
+    //private bool jumpPressed = false;
     private bool interactPressed = false;
     private bool submitPressed = false;
 
