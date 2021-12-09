@@ -5,9 +5,8 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
 
-public class DialogueManager : MonoBehaviour
+public class TestEliseDialogueManager : MonoBehaviour
 {
-
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -22,12 +21,11 @@ public class DialogueManager : MonoBehaviour
     private Story currentStory;
     [HideInInspector]
     public bool dialogueIsPlaying = false;
-    public List<GameObject> dialogues;
+    public List<TextAsset> dialogues;
 
-    public GameObject selectedDialogue;
-
-
-    private static DialogueManager instance;
+    private static TestEliseDialogueManager instance;
+    public TextMeshProUGUI welcomeText;
+    public float timer = 3f;
 
     // private const string SPEAKER_TAG = "speaker";
     // private const string PORTRAIT_TAG = "portrait";
@@ -42,13 +40,14 @@ public class DialogueManager : MonoBehaviour
         instance = this;
     }
 
-    public static DialogueManager GetInstance()
+    public static TestEliseDialogueManager GetInstance()
     {
         return instance;
     }
 
     private void Start()
     {
+        welcomeText.text = "Salut!  Je m'appelle Pixie.  Je vais te partager quelques souvenirs...";
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
@@ -65,24 +64,33 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0) { welcomeText.text = ""; }
+        // return right away if dialogue isn't playing
+        if (!dialogueIsPlaying)
+        {
+            return;
+        }
+
+        // handle continuing to the next line in the dialogue when submit is pressed
+        // NOTE: The 'currentStory.currentChoiecs.Count == 0' part was to fix a bug after the Youtube video was made
+        if (InputManager.GetInstance().GetSubmitPressed()) //(currentStory.currentChoices.Count == 0 && InputManager.GetInstance().GetSubmitPressed())
+        {
+            ContinueStory();
+        }
+    }
 
     public void EnterRandomDialogueMode()
     {
-        if (dialogueIsPlaying) return;
         int index = Random.Range(0, dialogues.Count);
-
-        selectedDialogue = dialogues[index];
-        DialogueTrigger dialogueTrigger = selectedDialogue.GetComponent<DialogueTrigger>();
-        if (dialogueTrigger == null)
-        {
-            Debug.LogError($"No DialogueTrigger in gameObject \"{selectedDialogue.name}\".", gameObject);
-        }
-        EnterDialogueMode(dialogueTrigger.inkJSON);
+        EnterDialogueMode(dialogues[index]);
     }
 
     public void EnterDialogueMode(TextAsset inkJSON)
-
     {
+        Debug.Log($"dialogue: {dialogueIsPlaying}");
         if (dialogueIsPlaying) return;
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
@@ -105,56 +113,23 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
     }
 
-    public void ContinueStory()
+    private void ContinueStory()
     {
         if (currentStory.canContinue)
         {
             // set text for the current dialogue line
             dialogueText.text = currentStory.Continue();
-
             // display choices, if any, for this dialogue line
             DisplayChoices();
             // handle tags
             // HandleTags(currentStory.currentTags);
         }
-        else if (currentStory.currentChoices.Count == 0)
+        else
         {
             StartCoroutine(ExitDialogueMode());
         }
     }
 
-    // private void HandleTags(List<string> currentTags)
-    // {
-    //     // loop through each tag and handle it accordingly
-    //     foreach (string tag in currentTags) 
-    //     {
-    //         // parse the tag
-    //         string[] splitTag = tag.Split(':');
-    //         if (splitTag.Length != 2) 
-    //         {
-    //             Debug.LogError("Tag could not be appropriately parsed: " + tag);
-    //         }
-    //         string tagKey = splitTag[0].Trim();
-    //         string tagValue = splitTag[1].Trim();
-
-    //         // handle the tag
-    //         switch (tagKey) 
-    //         {
-    //             case SPEAKER_TAG:
-    //                 displayNameText.text = tagValue;
-    //                 break;
-    //             case PORTRAIT_TAG:
-    //                 portraitAnimator.Play(tagValue);
-    //                 break;
-    //             case LAYOUT_TAG:
-    //                 layoutAnimator.Play(tagValue);
-    //                 break;
-    //             default:
-    //                 Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
-    //                 break;
-    //         }
-    //     }
-    // }
 
     private void DisplayChoices()
     {
@@ -200,5 +175,5 @@ public class DialogueManager : MonoBehaviour
         ContinueStory();
     }
 
-
 }
+
