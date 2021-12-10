@@ -153,9 +153,9 @@ public class DialogueManager : MonoBehaviour
         }
 
 
-        if (dialogueText.text != "🐉 Regardons les photos des lézards/ dragons.\n" && isActive2)
+        if (dialogueText.text != "🐉 Regardons les photos des lézards/ dragons.\n" && isActive3)
         {
-            Destroy(item2);
+            Destroy(item3);
 
         }
 
