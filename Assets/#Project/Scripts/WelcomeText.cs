@@ -10,7 +10,7 @@ public class WelcomeText : MonoBehaviour
     public float timer = 3f;
     void Start()
     {
-        welcomeText.text = "Bonjour, je m'appelle Pixie!  Comment va l'ami?";
+        welcomeText.text = "Bonjour, je m'appelle Pixie! Je suis ici pour papoter avec vous!";
 
     }
 
