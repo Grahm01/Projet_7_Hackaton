@@ -1,7 +1,6 @@
 -> interface3
 
 === interface3 ===
-Bonjour à toi !  J’espère que tu vas bien aujourd’hui ! 
 Dis, je pensais à quelque chose.  Est-ce que tu aimes les animaux ? 
 
 + [Je les adooooore!]
