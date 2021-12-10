@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     private bool lapin1 = true;
     private bool lezard1 = true;
 
-  
+
 
 
     public GameObject selectedDialogue;
@@ -89,17 +89,12 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText.text == "🐈 Regardons les photos du chat\n" && chat1)
         {
-<<<<<<< HEAD
             Debug.Log("chat");
-            Vector3 position = new Vector3(0f,0f,0f);
-=======
             Vector3 position = new Vector3(0f, 0f, 0f);
->>>>>>> origin/master
+
             GameObject item = Instantiate(chat, position, Quaternion.identity);
             chat1 = false;
-            
 
-           
         }
 
         if (dialogueText.text == "🐕 Regardons les photos du chien\n" && chien1)
@@ -128,7 +123,8 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText.text == "Pixie joue de la musique\n")
         {
-            if (musique.isPlaying == false){ 
+            if (musique.isPlaying == false)
+            {
 
                 bo.Pause();
                 musique.Play();
