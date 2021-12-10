@@ -27,6 +27,13 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI welcomeText;
     public float timer = 3f;
 
+    public AudioSource musique;
+
+    public GameObject chat;
+    public GameObject chien;
+    public GameObject lapin;
+    public GameObject lezard;
+
     public GameObject selectedDialogue;
 
 
@@ -71,8 +78,37 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+
         timer -= Time.deltaTime;
         if (timer < 0) { welcomeText.text = ""; }
+
+        if (dialogueText.text == "Regardons les photos du chat")
+        {
+            Vector3 position = new Vector3(0f,0f,0f);
+            GameObject item = Instantiate(chat, position, Quaternion.identity);
+        }
+
+        if (dialogueText.text == "Regardons les photos du chien")
+        {
+            Vector3 position = new Vector3(0f, 0f, 0f);
+            GameObject item = Instantiate(chien, position, Quaternion.identity);
+        }
+
+        if (dialogueText.text == "Regardons les photos des lapins")
+        {
+            Vector3 position = new Vector3(0f, 0f, 0f);
+            GameObject item = Instantiate(lapin, position, Quaternion.identity);
+        }
+
+        if (dialogueText.text == "Regardons les photos des lézards/ dragons.")
+        {
+            Vector3 position = new Vector3(0f, 0f, 0f);
+            GameObject item = Instantiate(lezard, position, Quaternion.identity);
+        }
+
+
+
+
     }
 
 
