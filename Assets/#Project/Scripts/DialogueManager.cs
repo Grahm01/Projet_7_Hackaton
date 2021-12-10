@@ -152,6 +152,13 @@ public class DialogueManager : MonoBehaviour
             lezard1 = false;
         }
 
+
+        if (dialogueText.text != "🐉 Regardons les photos des lézards/ dragons.\n" && isActive2)
+        {
+            Destroy(item2);
+
+        }
+
         if (dialogueText.text == "Pixie joue de la musique\n")
         {
             if (musique.isPlaying == false)
