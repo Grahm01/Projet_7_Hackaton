@@ -67,7 +67,7 @@ Retourner au palais et se marier avec celui qui avait fait cela ?
 Non !  Jamais !  Jamais elle ne pourrait se marier à une telle personne ! 
 Et puis, maintenant elle était libre et décidément, elle n’en pouvait plus des hommes ! 
 Quitte à devoir se trouver un nouvel ami dragon, elle ne retournerait jamais au royaume. 
-Elle décida donc de partir vivre sa vie de femme puissante et indépendante, amie des dragons. (End)
+Elle décida donc de partir vivre sa vie de femme puissante et indépendante, amie des dragons. 
 
 + [J'ai adoré] Merci beaucoup pour cette superbe histoire
     -> ending
