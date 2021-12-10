@@ -24,6 +24,9 @@ public class DialogueManager : MonoBehaviour
     public bool dialogueIsPlaying = false;
     public List<GameObject> dialogues;
 
+    public TextMeshProUGUI welcomeText;
+    public float timer = 3f;
+
     public GameObject selectedDialogue;
 
 
@@ -49,6 +52,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        welcomeText.text = "Bonjour, je m'appelle Pixie!  Comment va l'ami?";
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
@@ -63,6 +67,12 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+    }
+
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+        if (timer < 0) { welcomeText.text = ""; }
     }
 
 
