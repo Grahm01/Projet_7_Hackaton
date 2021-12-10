@@ -18,7 +18,7 @@ Quels animaux aimes-tu? Est-ce que tu aimerais les chats par hasard?
     -> suite3
 
 === suite2 ===
-Super! J'aime tous les animaux, du coup j'en ai pleins, voici des petites photos trop mignonnes de mon Neko neko.
+Super! J'aime tous les animaux, du coup j'en ai plein, voici des petites photos trop mignonnes de mon Neko neko.
 🐈 Regardons les photos du chat
     -> suite3
 
@@ -35,7 +35,7 @@ Nice! On a un point commun alors, je ne saurais pas me passer de ma boule de poi
     -> suite5
 
 === suite5 ===
-Qu'en pense tu des lapins? Je les trouvent teeeeellement adorables
+Qu'en pense tu des lapins ? Je les trouve teeeeellement adorables
 + [Moi aussi, on a tellement de points communs!]
     -> suite6
 + [Je ne te suis pas là du coup, je n'en raffole pas je dois dire]
@@ -54,7 +54,7 @@ Et les reptiles alors? Ce ne sont pas les plus populaires, et je ne peux pas com
     -> ending
     
 === suite8 ===
-Qui n'aimait pas Mushu dans Mulan quand il/ elle était petit.e? Regarde cette tête, adorable non?
+Qui n'aimait pas Mushu dans Mulan quand il/ elle était petit.e ? Regarde cette tête, adorable non ?
 🐉 Regardons les photos des lézards/ dragons.
     -> ending
 
