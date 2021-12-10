@@ -101,7 +101,7 @@ public class DialogueManager : MonoBehaviour
         {
             isActive = true;
             Debug.Log("chat");
-            Vector3 position = new Vector3(0f,0f,0f);
+            Vector3 position = new Vector3(-4.32000017f, -2.50200939f, 0f);
             item = Instantiate(chat, position, Quaternion.identity);
             chat1 = false;
         }
@@ -116,7 +116,7 @@ public class DialogueManager : MonoBehaviour
         {
             isActive1 = true;
             Debug.Log("chien");
-            Vector3 position = new Vector3(0f, 0f, 0f);
+            Vector3 position = new Vector3(-4.32000017f, -2.50200939f, 0f);
             item1 = Instantiate(chien, position, Quaternion.identity);
             chien1 = false;
         }
@@ -132,8 +132,8 @@ public class DialogueManager : MonoBehaviour
         {
             isActive2 = true;
             Debug.Log("lapin");
-            Vector3 position = new Vector3(0f, 0f, 0f);
-            item2= Instantiate(lapin, position, Quaternion.identity);
+            Vector3 position = new Vector3(-4.32000017f, -2.50200939f, 0f);
+            item2 = Instantiate(lapin, position, Quaternion.identity);
             lapin1 = false;
         }
 
@@ -147,7 +147,7 @@ public class DialogueManager : MonoBehaviour
         {
             isActive3 = true;
             Debug.Log("lezard");
-            Vector3 position = new Vector3(0f, 0f, 0f);
+            Vector3 position = new Vector3(-4.32000017f, -2.50200939f, 0f);
             item3 = Instantiate(lezard, position, Quaternion.identity);
             lezard1 = false;
         }
