@@ -125,7 +125,6 @@ public class DialogueManager : MonoBehaviour
         {
             if (musique.isPlaying == false)
             {
-
                 bo.Pause();
                 musique.Play();
             }
@@ -133,7 +132,7 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText.text == "Merci d’avoir écouté ! La musique est une des plus grandes nourritures de l’âme. Ne l’oublie pas ! Parlons encore de musique une autre fois!\n")
         {
-            Debug.Log("blahblah");
+            Debug.Log("Unpause");
             musique.Stop();
             bo.UnPause();
         }
