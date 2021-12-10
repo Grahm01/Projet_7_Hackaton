@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
 {
     private bool interactPressed = false;
     private bool submitPressed = false;
-    private bool onescapepress = false;
+    private bool quitPressed = false;
 
     private static InputManager instance;
 
@@ -81,23 +81,20 @@ public class InputManager : MonoBehaviour
     {
         if (context.performed)
         {
-            onescapepress = true;
+            quitPressed = true;
+            Application.Quit();
+            Debug.Log("Quit Pressed");
         }
         else if (context.canceled)
         {
-            onescapepress = false;
+            quitPressed = false;
         }
     }
 
-    public void GetQuitPressed(InputAction.CallbackContext context)
+  public bool GetQuitPressed() 
     {
-        if (context.performed)
-        {
-            onescapepress = true;
-        }
-        else if (context.canceled)
-        {
-            onescapepress = false;
-        }
+        bool result = quitPressed;
+        quitPressed = false;
+        return result;
     }
 }
