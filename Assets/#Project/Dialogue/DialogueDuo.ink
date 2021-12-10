@@ -1,7 +1,7 @@
 -> interface3
 
 === interface3 ===
-Hello hello !  Et l’eau coule à flot !  Je suis ici pour tenter de te faire rire !  ça te dis que je te raconte des blagues ? 
+ Je suis ici pour tenter de te faire rire !  ça te dis que je te raconte des blagues ? 
 
 + [Oui]
     -> suite
@@ -42,10 +42,10 @@ Un nuage
     -> ending
 
 === suite5 ===
-C’est l’histoire d’un shtroumf, il court, tombe et se fait un bleu 
-+ [Schtroumfement bien, schtroumf m'en encore!]
+C’est l’histoire d’un schtroumpf, il court, tombe et se fait un bleu 
++ [Schtroumpfement bien, schtroumpf m'en encore!]
     -> suite6
-+ [Schtroumfement pourri, j'arrête là!]
++ [Schtroumpfement pourri, j'arrête là!]
     -> ending
     
 === suite6 ===
