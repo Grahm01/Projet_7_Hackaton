@@ -31,12 +31,22 @@ public class DialogueManager : MonoBehaviour
     public GameObject lapin;
     public GameObject lezard;
 
+    private GameObject item;
+    private GameObject item1;
+    private GameObject item2;
+    private GameObject item3;
+
     private bool chat1 = true;
     private bool chien1 = true;
     private bool lapin1 = true;
     private bool lezard1 = true;
 
-  
+    private bool isActive = false;
+    private bool isActive1 = false;
+    private bool isActive2 = false;
+    private bool isActive3 = false;
+
+
 
 
     public GameObject selectedDialogue;
@@ -64,7 +74,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-
+        
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
@@ -87,47 +97,68 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText.text == "🐈 Regardons les photos du chat\n" && chat1)
         {
-<<<<<<< HEAD
+            isActive = true;
             Debug.Log("chat");
             Vector3 position = new Vector3(0f,0f,0f);
-=======
-            Vector3 position = new Vector3(0f, 0f, 0f);
->>>>>>> origin/master
-            GameObject item = Instantiate(chat, position, Quaternion.identity);
+            item = Instantiate(chat, position, Quaternion.identity);
             chat1 = false;
-            
+        }
 
-           
+        if (dialogueText.text != "🐈 Regardons les photos du chat\n" && isActive)
+        {
+            Destroy(item);
+            
         }
 
         if (dialogueText.text == "🐕 Regardons les photos du chien\n" && chien1)
         {
+            isActive1 = true;
             Debug.Log("chien");
             Vector3 position = new Vector3(0f, 0f, 0f);
-            GameObject item = Instantiate(chien, position, Quaternion.identity);
+            item1 = Instantiate(chien, position, Quaternion.identity);
             chien1 = false;
         }
 
+        if (dialogueText.text != "🐕 Regardons les photos du chien\n" && isActive1)
+        {
+            Destroy(item1);
+            
+        }
+
+
         if (dialogueText.text == "🐇 Regardons les photos des lapins\n" && lapin1)
         {
+            isActive2 = true;
             Debug.Log("lapin");
             Vector3 position = new Vector3(0f, 0f, 0f);
-            GameObject item = Instantiate(lapin, position, Quaternion.identity);
+            item2= Instantiate(lapin, position, Quaternion.identity);
             lapin1 = false;
+        }
+
+        if (dialogueText.text != "🐇 Regardons les photos des lapins\n" && isActive2)
+        {
+            Destroy(item2);
+            
         }
 
         if (dialogueText.text == "🐉 Regardons les photos des lézards/ dragons.\n" && lezard1)
         {
+            isActive3 = true;
             Debug.Log("lezard");
             Vector3 position = new Vector3(0f, 0f, 0f);
-            GameObject item = Instantiate(lezard, position, Quaternion.identity);
+            item3 = Instantiate(lezard, position, Quaternion.identity);
             lezard1 = false;
+        }
+
+        if (dialogueText.text != "🐉 Regardons les photos des lézards/ dragons.\n" && isActive3)
+        {
+            Destroy(item3);
+            
         }
 
         if (dialogueText.text == "Pixie joue de la musique\n")
         {
-            if (musique.isPlaying == false)
-                musique.Play();
+            musique.Play();
         }
 
 
@@ -135,7 +166,7 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-
+    
     public void EnterRandomDialogueMode()
     {
         if (dialogueIsPlaying) return;
@@ -272,5 +303,5 @@ public class DialogueManager : MonoBehaviour
         ContinueStory();
     }
 
-
+    
 }
