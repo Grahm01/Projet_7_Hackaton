@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
 {
     private bool interactPressed = false;
     private bool submitPressed = false;
+    private bool onescapepress = false;
 
     private static InputManager instance;
 
@@ -75,4 +76,28 @@ public class InputManager : MonoBehaviour
         submitPressed = false;
     }
 
+
+    public void QuitPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            onescapepress = true;
+        }
+        else if (context.canceled)
+        {
+            onescapepress = false;
+        }
+    }
+
+    public void GetQuitPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            onescapepress = true;
+        }
+        else if (context.canceled)
+        {
+            onescapepress = false;
+        }
+    }
 }
