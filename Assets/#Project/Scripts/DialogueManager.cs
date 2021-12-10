@@ -31,6 +31,14 @@ public class DialogueManager : MonoBehaviour
     public GameObject lapin;
     public GameObject lezard;
 
+    private bool chat1 = true;
+    private bool chien1 = true;
+    private bool lapin1 = true;
+    private bool lezard1 = true;
+
+  
+
+
     public GameObject selectedDialogue;
 
 
@@ -77,34 +85,47 @@ public class DialogueManager : MonoBehaviour
     {
 
 
-        if (dialogueText.text == "🐈 Regardons les photos du chat\n")
+        if (dialogueText.text == "🐈 Regardons les photos du chat\n" && chat1)
         {
+            Debug.Log("chat");
             Vector3 position = new Vector3(0f,0f,0f);
             GameObject item = Instantiate(chat, position, Quaternion.identity);
+            chat1 = false;
+            
+
+           
         }
 
-        if (dialogueText.text == "Regardons les photos du chien\n")
+        if (dialogueText.text == "🐕 Regardons les photos du chien\n" && chien1)
         {
+            Debug.Log("chien");
             Vector3 position = new Vector3(0f, 0f, 0f);
             GameObject item = Instantiate(chien, position, Quaternion.identity);
+            chien1 = false;
         }
 
-        if (dialogueText.text == "Regardons les photos des lapins\n")
+        if (dialogueText.text == "🐇 Regardons les photos des lapins\n" && lapin1)
         {
+            Debug.Log("lapin");
             Vector3 position = new Vector3(0f, 0f, 0f);
             GameObject item = Instantiate(lapin, position, Quaternion.identity);
+            lapin1 = false;
         }
 
-        if (dialogueText.text == "Regardons les photos des lézards/ dragons.\n")
+        if (dialogueText.text == "🐉 Regardons les photos des lézards/ dragons.\n" && lezard1)
         {
+            Debug.Log("lezard");
             Vector3 position = new Vector3(0f, 0f, 0f);
             GameObject item = Instantiate(lezard, position, Quaternion.identity);
+            lezard1 = false;
         }
 
         if (dialogueText.text == "Pixie joue de la musique\n")
         {
             musique.Play();
         }
+
+
 
 
     }
@@ -148,6 +169,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
+
+
 
     public void ContinueStory()
     {
