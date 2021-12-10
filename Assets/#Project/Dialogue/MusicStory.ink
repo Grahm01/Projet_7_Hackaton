@@ -1,7 +1,6 @@
 -> interface3
 
 === interface3 ===
-Bonjour, 
 Je sais que les temps peuvent être durs et stressants, ici à Interface3. 
 Parfois, pour me détendre, j’écoute de la musique carnatique. 
 Voudrais-tu en savoir plus sur l’histoire de cette musique ? 
@@ -24,8 +23,8 @@ Souhaites-tu en écouter un peu ?
      -> ending
     
 === encoreplus ===
-🎵🎸 Pixie joue de la musique 🎵🎸
-Merrci d’avoir écouté ! La musique est une des plus grandes nourritures de l’âme. Ne l’oublie pas ! -> ending
+Pixie joue de la musique
+Merci d’avoir écouté ! La musique est une des plus grandes nourritures de l’âme. Ne l’oublie pas ! -> ending
 
 === ending ===
 Parlons encore de musique une autre fois! 
