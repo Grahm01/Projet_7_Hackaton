@@ -33,6 +33,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d2ae061-3888-47b0-b48f-e979446aaea2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -57,6 +65,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27e76cd4-9b60-4a9c-ad77-87cf94210abe"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -67,6 +86,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_game = asset.FindActionMap("game", throwIfNotFound: true);
         m_game_interact = m_game.FindAction("interact", throwIfNotFound: true);
         m_game_submit = m_game.FindAction("submit", throwIfNotFound: true);
+        m_game_Quit = m_game.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -118,12 +138,14 @@ public class @Controls : IInputActionCollection, IDisposable
     private IGameActions m_GameActionsCallbackInterface;
     private readonly InputAction m_game_interact;
     private readonly InputAction m_game_submit;
+    private readonly InputAction m_game_Quit;
     public struct GameActions
     {
         private @Controls m_Wrapper;
         public GameActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @interact => m_Wrapper.m_game_interact;
         public InputAction @submit => m_Wrapper.m_game_submit;
+        public InputAction @Quit => m_Wrapper.m_game_Quit;
         public InputActionMap Get() { return m_Wrapper.m_game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -139,6 +161,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @submit.started -= m_Wrapper.m_GameActionsCallbackInterface.OnSubmit;
                 @submit.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnSubmit;
                 @submit.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnSubmit;
+                @Quit.started -= m_Wrapper.m_GameActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -149,6 +174,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @submit.started += instance.OnSubmit;
                 @submit.performed += instance.OnSubmit;
                 @submit.canceled += instance.OnSubmit;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -157,5 +185,6 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnInteract(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
 }
