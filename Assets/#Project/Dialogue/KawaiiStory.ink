@@ -11,7 +11,7 @@ Veux-tu que je te raconte une petite histoire mignonne?
 === suite ===
 Chouette !  Tu es prêt.e ?  Je vais te raconter pourquoi il y a des étoiles dans le ciel.
 Cette histoire se passe il y a fort fort longtemps, alors que le monde était plongé dans une éternelle obscurité.
-Les gens à cette époque étaient fort triste car rien ne venait égayer leur existence.
+Les gens à cette époque étaient fort tristes car rien ne venait égayer leur existence.
 Un jour un royaume eut une idée.  Et si on faisait en sorte d’éclairer le monde ?  Faire disparaitre la nuit.
 Est-ce que cela ne rendrait pas les gens heureux ?
 Alors, dans ce royaume, on fit appel à la créativité, l’imagination de chaque citoyen pour trouver une solution. 
@@ -20,7 +20,7 @@ Son idée était de créer une grande sphère lumineuse avec sa magie.  Puis, à
 L’envoyer tellement haut dans le ciel qu’elle y resterait à jamais.
 L’idée fut prise, la mage savante vint donc un beau jour pour créer une gigantesque boule de lumière. 
 Tout le monde était présent. Une énorme catapulte, la plus grosse jamais vue avait été préparée.
-On mit la sphère de lumière dans la catapulte et elle fut envoyée haut, très haut, très très haut dans le ciel (Next)
+On mit la sphère de lumière dans la catapulte et elle fut envoyée haut, très haut, très très haut dans le ciel 
 Comme prévu, elle y resta et ne retomba point.  Ce fut magnifique, les gens étaient tout sourire-.
 On décida de nommer cette sphère dans le ciel par le nom de la bien aimée reine : Soleil.
 Veux-tu que je continue mon histoire ?  J’en suis à la moitié...
