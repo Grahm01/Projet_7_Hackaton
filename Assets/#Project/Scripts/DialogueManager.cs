@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -78,25 +78,25 @@ public class DialogueManager : MonoBehaviour
     {
 
 
-        if (dialogueText.text == "Regardons les photos du chat")
+        if (dialogueText.text == "🐈 Regardons les photos du chat\n")
         {
             Vector3 position = new Vector3(0f,0f,0f);
             GameObject item = Instantiate(chat, position, Quaternion.identity);
         }
 
-        if (dialogueText.text == "Regardons les photos du chien")
+        if (dialogueText.text == "Regardons les photos du chien\n")
         {
             Vector3 position = new Vector3(0f, 0f, 0f);
             GameObject item = Instantiate(chien, position, Quaternion.identity);
         }
 
-        if (dialogueText.text == "Regardons les photos des lapins")
+        if (dialogueText.text == "Regardons les photos des lapins\n")
         {
             Vector3 position = new Vector3(0f, 0f, 0f);
             GameObject item = Instantiate(lapin, position, Quaternion.identity);
         }
 
-        if (dialogueText.text == "Regardons les photos des l�zards/ dragons.")
+        if (dialogueText.text == "Regardons les photos des lézards/ dragons.\n")
         {
             Vector3 position = new Vector3(0f, 0f, 0f);
             GameObject item = Instantiate(lezard, position, Quaternion.identity);
