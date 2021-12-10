@@ -11,10 +11,12 @@ public class SpriteChange : MonoBehaviour
     public enum SpriteStatus { open1 = 0, closed1 = 1}
     public SpriteStatus spriteState;
 
+    public InputManager inputManagerScript;
+
     void Start()
     {
-        OnMouseClick();
-    }
+        //OnMouseClick();
+}
     void Update()
     {
         rando = Random.Range(0, 1);
