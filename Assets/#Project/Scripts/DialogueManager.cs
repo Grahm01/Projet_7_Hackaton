@@ -64,7 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        
+
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
@@ -87,8 +87,12 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText.text == "🐈 Regardons les photos du chat\n" && chat1)
         {
+<<<<<<< HEAD
             Debug.Log("chat");
             Vector3 position = new Vector3(0f,0f,0f);
+=======
+            Vector3 position = new Vector3(0f, 0f, 0f);
+>>>>>>> origin/master
             GameObject item = Instantiate(chat, position, Quaternion.identity);
             chat1 = false;
             
@@ -122,7 +126,8 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText.text == "Pixie joue de la musique\n")
         {
-            musique.Play();
+            if (musique.isPlaying == false)
+                musique.Play();
         }
 
 
