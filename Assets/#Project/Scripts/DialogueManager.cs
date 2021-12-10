@@ -26,7 +26,6 @@ public class DialogueManager : MonoBehaviour
 
 
     public AudioSource musique;
-
     public GameObject chat;
     public GameObject chien;
     public GameObject lapin;
@@ -102,7 +101,10 @@ public class DialogueManager : MonoBehaviour
             GameObject item = Instantiate(lezard, position, Quaternion.identity);
         }
 
-
+        if (dialogueText.text == "Pixie joue de la musique ")
+        {
+            musique.Play();
+        }
 
 
     }
