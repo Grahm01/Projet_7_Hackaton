@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
 
 
     public AudioSource musique;
+    public AudioSource bo;
     public GameObject chat;
     public GameObject chien;
     public GameObject lapin;
@@ -59,6 +60,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+        bo.Play();
 
         //     // get the layout animator
         //     layoutAnimator = dialoguePanel.GetComponent<Animator>();
@@ -103,8 +105,18 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueText.text == "Pixie joue de la musique\n")
         {
-            if (musique.isPlaying == false)
+            if (musique.isPlaying == false){ 
+
+                bo.Pause();
                 musique.Play();
+            }
+        }
+
+        if (dialogueText.text == "Merci d’avoir écouté ! La musique est une des plus grandes nourritures de l’âme. Ne l’oublie pas ! Parlons encore de musique une autre fois!\n")
+        {
+            Debug.Log("blahblah");
+            musique.Stop();
+            bo.UnPause();
         }
 
 
