@@ -101,7 +101,7 @@ public class DialogueManager : MonoBehaviour
             GameObject item = Instantiate(lezard, position, Quaternion.identity);
         }
 
-        if (dialogueText.text == "Pixie joue de la musique ")
+        if (dialogueText.text == "Pixie joue de la musique\n")
         {
             musique.Play();
         }
